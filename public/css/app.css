@@ -10903,3 +10903,16 @@ body {
   color: #0b0b92;
 }
 
+.admin {
+  background-color: #ccc;
+}
+
+.admin .gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.admin .gallery .card {
+  flex-basis: 25%;
+}
+
