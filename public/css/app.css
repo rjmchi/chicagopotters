@@ -10916,3 +10916,12 @@ body {
   flex-basis: 25%;
 }
 
+.admin .album {
+  text-align: center;
+}
+
+.admin .album .card-body {
+  display: flex;
+  justify-content: space-evenly;
+}
+

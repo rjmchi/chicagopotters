@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class AlbumController extends Controller
 {
@@ -14,7 +16,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        $data ['albums'] = Album::all();
+        return view('admin.album.list')->with($data);
     }
 
     /**
@@ -24,7 +27,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.album.new');
     }
 
     /**
@@ -35,7 +38,14 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'name'=> 'required',
+        ]);
+
+        $data['description']= $request->input('description');
+        $data['slug'] = Str::slug($request->input('name'));
+        $album = Album::create($data); 
+        return redirect(route('album.index'));     
     }
 
     /**
@@ -46,7 +56,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        return view('admin.album.show', compact('album'));
     }
 
     /**
@@ -69,7 +79,19 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
-        //
+        $dirty = false;
+        if ($request->input('name') != $album->name) {
+            $album->name = $request->input('name');
+            $dirty=true;
+        }
+        if ($request->input('description') != $album->description) {
+            $album->description = $request->input('description');
+            $dirty = true;
+        }
+        if ($dirty) {
+            $album->save();
+        }
+        return (redirect('/album'));
     }
 
     /**
@@ -80,6 +102,10 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        foreach ($album->photos as $photo) {
+            $photo->delete();
+        }
+        $album->delete();
+        return redirect('/album');
     }
 }

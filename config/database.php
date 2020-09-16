@@ -41,6 +41,7 @@ return [
             'database' => database_path(env('DB_DATABASE', 'database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+            'exec'     => 'PRAGMA foreign_keys = ON;',  //enable delete cascade            
         ],
 
         'mysql' => [

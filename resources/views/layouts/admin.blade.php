@@ -24,6 +24,9 @@
         <main>
             @yield('content')
         </main>
+        <footer>
+            <a class="btn btn-success btn-block" href="/admin">Home</a>
+        </footer>
     </div>
 </body>
 </html>

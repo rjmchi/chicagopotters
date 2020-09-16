@@ -10,4 +10,11 @@ body {
             flex-basis:25%;
         }
     }
+    .album {
+        text-align:center;
+        .card-body {
+            display:flex;
+            justify-content: space-evenly;
+        }
+    }
 }

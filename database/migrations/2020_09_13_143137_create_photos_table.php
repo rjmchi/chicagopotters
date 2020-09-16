@@ -18,8 +18,8 @@ class CreatePhotosTable extends Migration
             $table->foreignId('album_id')->onDelete('cascade')->constrained();            
             $table->string('filename');
 			$table->string('caption')->nullable();
-			$table->integer('width');
-			$table->integer('height');            
+			$table->integer('width')->nullable();
+			$table->integer('height')->nullable();            
             $table->timestamps();
         });
     }
