@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +25,5 @@ Route::get('/admin', [AdminController::class, 'index']);
 Auth::routes();
 
 Route::resource('album', AlbumController::class);
-route::resource('album.photo', PhotoController::class);
+Route::resource('album.photo', PhotoController::class);
+Route::resource('category', CategoryController::class);

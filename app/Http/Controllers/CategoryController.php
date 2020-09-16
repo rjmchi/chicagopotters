@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $data['categories'] = Category::all();
+        return view('admin.category.list')->with($data);
     }
 
     /**
@@ -35,7 +37,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'name'=> 'required',
+        ]);
+        $data['slug'] = Str::slug($request->input('name'));        
+        $category = Category::create($data); 
+        return redirect(route('category.index'));   
     }
 
     /**
