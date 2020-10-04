@@ -1,19 +1,42 @@
 body {
-    color:#0b0b92;
+    color: $purple;
+    footer {
+        margin: 15px 50px;
+    }
 }
 .admin {
-    background-color:#ccc;
+    background-color: lighten($purple, 75%);
     .gallery {
-        display:flex;
+        display: flex;
         flex-wrap: wrap;
-        .card {
-            flex-basis:25%;
+    }
+    .artist {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15px;
+        border: 1px solid $purple;
+        border-radius: 4px;
+        margin-bottom: 3px;
+        .portrait {
+            width: 150px;
+            margin-right: 20px;
+        }
+        span {
+            p {
+                margin: 2px;
+                font-size: 1.25em;
+            }
         }
     }
+    .card {
+        flex-basis: 25%;
+        padding: 10px;
+    }
+
     .album {
-        text-align:center;
+        text-align: center;
         .card-body {
-            display:flex;
+            display: flex;
             justify-content: space-evenly;
         }
     }

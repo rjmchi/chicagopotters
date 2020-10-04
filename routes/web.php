@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ArtistController;
 
 
 /*
@@ -27,3 +28,4 @@ Auth::routes();
 Route::resource('album', AlbumController::class);
 Route::resource('album.photo', PhotoController::class);
 Route::resource('category', CategoryController::class);
+Route::resource('artist', ArtistController::class);
