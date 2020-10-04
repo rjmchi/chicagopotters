@@ -2,8 +2,15 @@ body {
     color: $purple;
     footer {
         margin: 15px 50px;
+        padding: 25px;
     }
 }
+
+.btn-primary {
+    background-color: $purple;
+    border-color: darken($purple, 10%);
+}
+
 .admin {
     background-color: lighten($purple, 75%);
     .gallery {
