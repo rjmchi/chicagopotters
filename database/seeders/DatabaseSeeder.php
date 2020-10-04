@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // User::factory(10)->create();
-        $this->call([
-            AlbumSeeder::class,
-        ]);
+        $this->call([CategorySeeder::class,]);
+
+        $this->call([AlbumSeeder::class,]);
 
         $u = [
             'name'=>'robert', 

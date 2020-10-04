@@ -6,7 +6,7 @@
     <ul class="list-group">
         <li class="list-group-item"><a href="{{route('artist.index')}}">Artists</a></li>
         <li class="list-group-item">Add Piece</li>
-        <li class="list-group-item"><a href="{{route('category.index')}}">Add Category</a></li>
+        <li class="list-group-item"><a href="{{route('category.index')}}">Categories</a></li>
         <li class="list-group-item"><a href="{{route('album.index')}}">Albums</a></li>
     </ul>     
 </div>
