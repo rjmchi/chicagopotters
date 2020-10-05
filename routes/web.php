@@ -8,6 +8,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\PieceController;
+use App\Mail\ContactMail;
 
 
 /*
@@ -26,6 +27,10 @@ Route::get('/categories', [HomeController::class, 'categories']);
 Route::get('/links', [HomeController::class, 'links']);
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/events', [HomeController::class, 'events']);
+Route::get('/mail/{artist}', [HomeController::class, 'mail']);
+Route::post('/mail', [HomeController::class, 'sendMail']);
+
+
 
 Route::get('/admin', [AdminController::class, 'index']);
 
