@@ -22,6 +22,11 @@ use App\Http\Controllers\PieceController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/categories', [HomeController::class, 'categories']);
+Route::get('/links', [HomeController::class, 'links']);
+Route::get('/contact', [HomeController::class, 'contact']);
+Route::get('/events', [HomeController::class, 'events']);
+
 Route::get('/admin', [AdminController::class, 'index']);
 
 Auth::routes();
