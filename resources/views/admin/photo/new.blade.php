@@ -12,7 +12,7 @@
             <label for="caption">Caption:</label>
             <input type="text" name="caption" id="caption" class="form-control">
         </div>
-        <input type="file" id="filename" name="filename"> 
+        <input type="file" name="filename[]" multiple> 
         @error('filename') 
             <small class="text-danger">{{$message}}</small>      
         @enderror

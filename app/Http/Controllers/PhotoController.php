@@ -37,33 +37,37 @@ class PhotoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'filename'=>'image|max:2048',
+            'filename[]'=>'image|max:2048',
         ]);
 
         $album = Album::find($request->input('album_id'));
-        $size = getimagesize($request->file('filename'));
 
-        // foreach($request->file('filename') as $file) {
-        //     $filenameWithExt = $file->getClientOriginalName();
-        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //     $ext = $file->getClientOriginalExtension();
-        //     $filenameToStore = $filename.'_'.time().'.'.$ext;            
-        //     $path = $file->storeAs('public/photos/'.$request->input('album_slug'), $filenameToStore);
-        // }
+        foreach($request->file('filename') as $file) {
 
-        $filenameWithExt = $request->file('filename')->getClientOriginalName();
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $ext = $request->file('filename')->getClientOriginalExtension();
-        $filenameToStore = $filename.'_'.time().'.'.$ext;
-        $path = $request->file('filename')->storeAs('public/photos/'.$album->slug, $filenameToStore);
+            $size = getimagesize($file);
+
+            $filenameWithExt = $file->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $ext = $file->getClientOriginalExtension();
+            $filenameToStore = $filename.'_'.time().'.'.$ext;            
+            $path = $file->storeAs('public/photos/'.$request->input('album_slug'), $filenameToStore);
+
+            $photo = new Photo;
+            $photo->caption = $request->input('caption');
+            $photo->filename = $filenameToStore;
+            $photo->width = $size[0];
+            $photo->height = $size[1];
+            $photo->album_id = $request->input('album_id');
+            $photo->save();            
+        }
+
+        // $filenameWithExt = $request->file('filename')->getClientOriginalName();
+        // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        // $ext = $request->file('filename')->getClientOriginalExtension();
+        // $filenameToStore = $filename.'_'.time().'.'.$ext;
+        // $path = $request->file('filename')->storeAs('public/photos/'.$album->slug, $filenameToStore);
         
-        $photo = new Photo;
-        $photo->caption = $request->input('caption');
-        $photo->filename = $filenameToStore;
-        $photo->width = $size[0];
-        $photo->height = $size[1];
-        $photo->album_id = $request->input('album_id');
-        $photo->save();
+
         return redirect('/album')->with('success', 'Photo Uploaded');
     }
 
