@@ -10,6 +10,15 @@ body {
     background-color: $purple;
     border-color: darken($purple, 10%);
 }
+.photo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.caption {
+    text-align: center;
+    flex-basis: 100%;
+}
 
 .admin {
     background-color: lighten($purple, 75%);

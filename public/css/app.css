@@ -10913,6 +10913,17 @@ body footer {
   border-color: #18023c;
 }
 
+.photo {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.caption {
+  text-align: center;
+  flex-basis: 100%;
+}
+
 .admin {
   background-color: #f6f1fe;
 }
