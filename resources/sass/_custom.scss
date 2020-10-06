@@ -5,6 +5,54 @@ body {
         padding: 25px;
     }
 }
+header {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.artist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    h3 {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    img.portrait {
+        margin-right: 15px;
+        border-radius: 25px;
+    }
+    ul {
+        padding-left: 50px;
+        list-style: none;
+        font-size: 1.1em;
+        li {
+            margin-top: 2px;
+        }
+    }
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-basis: 20%;
+        a {
+            margin-bottom: 10px;
+            line-height: 1.15em;
+        }
+    }
+}
+.artist:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 10px;
+    border-bottom: 2px solid $purple;
+}
 
 .btn-primary {
     background-color: $purple;

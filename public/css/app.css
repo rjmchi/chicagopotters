@@ -10908,6 +10908,62 @@ body footer {
   padding: 25px;
 }
 
+header {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.artist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.artist h3 {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.artist img.portrait {
+  margin-right: 15px;
+  border-radius: 25px;
+}
+
+.artist ul {
+  padding-left: 50px;
+  list-style: none;
+  font-size: 1.1em;
+}
+
+.artist ul li {
+  margin-top: 2px;
+}
+
+.artist .links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-basis: 20%;
+}
+
+.artist .links a {
+  margin-bottom: 10px;
+  line-height: 1.15em;
+}
+
+.artist:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  padding-top: 10px;
+  border-bottom: 2px solid #2c046d;
+}
+
 .btn-primary {
   background-color: #2c046d;
   border-color: #18023c;
