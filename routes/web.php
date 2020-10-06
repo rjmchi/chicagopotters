@@ -8,6 +8,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\PieceController;
+use App\Http\Controllers\EventController;
 use App\Mail\ContactMail;
 
 
@@ -41,3 +42,4 @@ Route::resource('album.photo', PhotoController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('artist', ArtistController::class);
 Route::resource('piece', PieceController::class);
+Route::resource('event', EventController::class);

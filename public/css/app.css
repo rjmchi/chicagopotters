@@ -10955,3 +10955,8 @@ body footer {
   justify-content: space-evenly;
 }
 
+.admin .event .card-header {
+  display: flex;
+  justify-content: space-between;
+}
+

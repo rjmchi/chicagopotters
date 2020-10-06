@@ -8,6 +8,7 @@
         <li class="list-group-item"><a href="{{route('piece.create')}}">Add A Piece</a></li>
         <li class="list-group-item"><a href="{{route('category.index')}}">Categories</a></li>
         <li class="list-group-item"><a href="{{route('album.index')}}">Albums</a></li>
+        <li class="list-group-item"><a href="{{route('event.index')}}">Events</a></li>
     </ul>     
 </div>
 @endsection

@@ -47,4 +47,10 @@ body {
             justify-content: space-evenly;
         }
     }
+    .event {
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }
