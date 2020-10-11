@@ -53,7 +53,42 @@ header {
     padding-top: 10px;
     border-bottom: 2px solid $purple;
 }
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    margin: 10px auto;
+    width: 400px;
+    border-bottom: 1px solid $purple;
+    font-size: 1.4em;
+    line-height: 1.5em;
+    div {
+        width: 150px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    ul {
+        padding: 0;
+        margin: 0 15px;
+        flex-basis: 50%;
+    }
+}
+.gallery {
+    background-color: #f0f0f0;
+    .piece {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-bottom: 5px;
+        justify-content: center;
+        align-items: center;
 
+        p {
+            line-height: 1em;
+            margin: 0;
+        }
+    }
+}
 .btn-primary {
     background-color: $purple;
     border-color: darken($purple, 10%);

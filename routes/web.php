@@ -32,6 +32,7 @@ Route::get('/mail/{artist}', [HomeController::class, 'mail']);
 Route::post('/mail', [HomeController::class, 'sendMail']);
 
 Route::get('/album/{slug}', [HomeController::class, 'showAlbum']);
+Route::get('/gallery/{artist}/{category}/{show?}',[HomeController::class, 'gallery']);
 
 
 
