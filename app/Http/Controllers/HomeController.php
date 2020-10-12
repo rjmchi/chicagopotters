@@ -72,40 +72,59 @@ class HomeController extends Controller
         return view('showalbum', compact('album'));
     }
 
-    public function gallery($artist, $category, $show=null) {
+    public function gallery(Request $request, $artist, $category, $show=null) {
         $piece = Piece::query();
+        session(['artist' => $artist]);  
+        session(['category' => $category]);        
+        session(['show'=> 'all']);
+
         if ($artist > 0)
         {
             $data['artist'] = Artist::find($artist);
             $piece->where('artist_id', '=', $artist);
-        }
+        } 
+
         if ($category)
         {
             $data['category'] = Category::where('slug', $category)->get()->first();
             $catpieces= $data['category']->pieces->pluck('id'); //get ids of all pieces in category
             $piece->whereHas('categories',function($query) use($catpieces ) {
                 $query->whereIn('piece_id', $catpieces );
-            });            
+            });
         }
+
         if ($show != 'all') {
             $piece->where('price', '>', 0);
             $piece->where('order_id', '=', null);
+            $request->session()->forget('show');
         }
 
-        $data['pieces'] = $piece->get();
+        $data['pieces'] = $piece->orderBy('id', 'desc')->get();
         return view('gallery')->with($data);
     }
     
-    public function piece(Piece $piece, Artist $artist=null, $category_slug=null, $show=null){
+    public function piece(Request $request, Piece $piece){
         $data['piece']= $piece;
-        $data['artist']= $artist;
-        if ($category_slug){
-            $category = Category::where('slug', 'like', $category_slug)->first();
-        } else {
-            $category = null;
+
+        if ($request->session()->has('artist')) {
+            $artist = session('artist');
+        }else {
+            $artist = 0;
         }
-        $data['category']= $category;
+        if ($request->session()->has('category')) {
+            $category = session('category');
+        }else {
+            $category = 0;
+        }
+        if ($request->session()->has('show')) {
+            $show = session('show');
+        }else {
+            $show = 0;
+        }          
+
         $data['piece']= $piece;
+        $data['category']= $category;
+        $data['artist']= $artist;
         $data['show']= $show;
 
         return view('piece')->with($data);
