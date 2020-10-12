@@ -12,6 +12,7 @@
    <div class="gallery">
         @foreach ($pieces as $piece)
             <div class="piece">
+                <a href="/piece/{{$piece->id}}">
                 <img src="{{asset('./storage/images'.$piece->artist->id.'/'.$piece->pictures->where('main_image', true)->first()->file_name)}}" alt="{{$piece->title}}" width="150">
                 <div>
                     <p>{{$piece->title}}</p>
@@ -20,6 +21,7 @@
                     <p>{{($piece->price > 0) ? $piece->price : "not for sale"}}</p>
                     <p>Item: {{$piece->id}}</p>
                 </div>
+            </a>
             </div>       
        @endforeach
    </div>

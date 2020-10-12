@@ -33,8 +33,7 @@ Route::post('/mail', [HomeController::class, 'sendMail']);
 
 Route::get('/album/{slug}', [HomeController::class, 'showAlbum']);
 Route::get('/gallery/{artist}/{category}/{show?}',[HomeController::class, 'gallery']);
-
-
+Route::get('/piece/{piece}/{artist?}/{category?}/{show?}',[HomeController::class, 'piece']);
 
 Route::get('/admin', [AdminController::class, 'index']);
 

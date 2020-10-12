@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Artist;
 use App\Models\Category;
 use App\Models\Piece;
+use App\Models\Picture;
 use App\Models\Event;
 use App\Models\Album;
 use App\Mail\ContactMail;
@@ -93,5 +94,20 @@ class HomeController extends Controller
 
         $data['pieces'] = $piece->get();
         return view('gallery')->with($data);
+    }
+    
+    public function piece(Piece $piece, Artist $artist=null, $category_slug=null, $show=null){
+        $data['piece']= $piece;
+        $data['artist']= $artist;
+        if ($category_slug){
+            $category = Category::where('slug', 'like', $category_slug)->first();
+        } else {
+            $category = null;
+        }
+        $data['category']= $category;
+        $data['piece']= $piece;
+        $data['show']= $show;
+
+        return view('piece')->with($data);
     }
 }
