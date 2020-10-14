@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,29 +14,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // User::factory(10)->create();
-        $this->call([CategorySeeder::class,]);
-
+ 		$this->call(convertArtist::class);
+         $this->call(convertCategory::class);
+         $this->call(convertPiece::class);
+         $this->call(convertCategoryPiece::class);
+         $this->call(convertPicture::class);
+         $this->call(convertCustomer::class);
+         $this->call(convertOrder::class);
         $this->call([AlbumSeeder::class,]);
-
-        $u = [
-            'name'=>'robert', 
-            'email'=>'robert@rjmchicago.com',
-            'password'=>Hash::make('password'),
-        ];
-        $user = \App\Models\User::create($u);
-
-        $a = [
-            'first_name'=>'Robert',
-            'middle_name'=>'J.',
-            'last_name'=>'Milanowski',
-            'phone'=>'7738025167',
-            'address'=>'2735 N. Richmond St.',
-            'city'=>'Chicago',
-            'state'=> 'IL',
-            'zip'=>'60647',
-            'picture'=>'rjm.jpg',
-            ] ;
-        $user->artist()->create($a);
+		echo 'done!';
     }
 }
 
