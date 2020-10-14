@@ -18,7 +18,13 @@
                     <p>{{$piece->title}}</p>
                     <p>{{$piece->dimensions}}</p>
                     <p>{{$piece->decoration}}</p>
-                    <p>{{($piece->price > 0) ? $piece->price : "not for sale"}}</p>
+                    @if($piece->sold)
+                        <p>Sold</p>
+                    @elseif ($piece->price > 0)
+                        <p>${{$piece->price}}</p>
+                    @else
+                        <p>Not for sale</p>
+                    @endif
                     <p>Item: {{$piece->id}}</p>
                 </div>
             </a>
