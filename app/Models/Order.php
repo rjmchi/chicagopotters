@@ -15,7 +15,7 @@ class Order extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function pieces() {
-        return $this->hasMany(Piece::class);
+    public function piece() {
+        return $this->belongsTo(Piece::class);
     }
 }

@@ -18,7 +18,7 @@ class Piece extends Model
         return $this->belongsTo(Artist::class);
     }
     public function order() {
-        return $this->belongsTo(Order::class);
+        return $this->hasOne(Order::class);
     }    
     public function categories() {
         return $this->belongsToMany(Category::class);
