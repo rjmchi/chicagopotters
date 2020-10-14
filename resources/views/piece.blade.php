@@ -11,7 +11,7 @@
             <p>{{$piece->decoration}}</p>
             <p>Artist: {{$piece->artist->first_name}} {{$piece->artist->middle_name}} {{$piece->artist->last_name}}</p>
             <p>Item Number: {{$piece->id}}</p>
-            @if($piece->order_id)
+            @if($piece->sold)
                 <p>Price: Sold</p>
             @elseif ($piece->price && $piece->price > 0)
                 <p>Price: ${{$piece->price}}</p>

@@ -95,7 +95,7 @@ class HomeController extends Controller
 
         if ($show != 'all') {
             $piece->where('price', '>', 0);
-            $piece->where('order_id', '=', null);
+            $piece->where('sold', '=', false);
             $request->session()->forget('show');
         }
 

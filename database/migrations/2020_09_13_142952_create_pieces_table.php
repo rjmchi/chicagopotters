@@ -20,9 +20,9 @@ class CreatePiecesTable extends Migration
 			$table->string('dimensions')->nullable();
 			$table->string('decoration')->nullable();
             $table->decimal('price',5,2)->default(0.00);
-			$table->float('weight')->nullable();                        
+            $table->float('weight')->nullable(); 
+            $table->boolean('sold')->default(false);                    
             $table->foreignId('artist_id')->onDelete('cascade')->constrained();            
-            $table->foreignId('order_id')->nullable()->constrained();            
             $table->timestamps();
         });
     }
