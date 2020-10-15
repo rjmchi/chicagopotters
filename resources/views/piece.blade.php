@@ -15,7 +15,7 @@
                 <p>Price: Sold</p>
             @elseif ($piece->price && $piece->price > 0)
                 <p>Price: ${{$piece->price}}</p>
-                <p><a href="/order/{{$piece->id}}">Order this item</a></p>
+                <p><a class="btn btn-primary" href="/order/{{$piece->id}}">Order this item</a></p>
             @else 
                 <p>Not For Sale</p>
             @endif
