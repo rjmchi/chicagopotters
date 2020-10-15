@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <header><img src="{{asset('/images/cpbanner.gif')}}" alt="ChicagoPotters.com">
+        <header><img src="{{asset('/images/cpbanner.svg')}}" alt="ChicagoPotters.com">
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <a class="navbar-brand" href="/">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
