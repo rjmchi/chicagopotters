@@ -55,6 +55,10 @@
         <main>
             @yield('content')
         </main>
+        <footer>
+<p>This site owned and operated by Robert J. Milanowski and Howard Z. Skolnik</p>
+<p>&copy; 2003-{{ now()->year }} &mdash; Robert J. Milanowski. &nbsp;All rights reserved.</p>      
+        </footer>
     </div>
 </body>
 </html>
