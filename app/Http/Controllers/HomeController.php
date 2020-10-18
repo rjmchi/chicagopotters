@@ -101,6 +101,9 @@ class HomeController extends Controller
             $piece->where('price', '>', 0);
             $piece->where('sold', '=', false);
             $request->session()->forget('show');
+            $data['show'] = 'forsale';
+        } else {
+            $data['show'] = 'all';
         }
 
         $data['pieces'] = $piece->orderBy('id', 'desc')->get();

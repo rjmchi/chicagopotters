@@ -2,13 +2,28 @@
 
 @section('content')
 <div class="container">
-   <h1>Gallery</h1>
-   @if (isset($artist))
-   <h2>{{$artist->first_name}} {{$artist->middle_name}} {{$artist->last_name}}</h2>
-   @endif
-   @if (isset($category))
-   <h2>{{$category->name}}</h2>
-   @endif   
+    <header class="gallery">
+        <span>
+            @php 
+                $url = '/';
+                $url .= isset($artist)?$artist->id.'/':'0/';
+                $url .= isset($category)?$category->slug.'/':'0/';
+            @endphp
+            <label for="allitems">Show all items:</label>                
+            <input type="radio" name="sold" id="allitems" value="yes" onclick="changeSold('{{$url}}', 'all')" {{$show=='all'?'checked':''}}>
+            <label for="soldonly">Show only items for sale:</label>
+            <input type="radio" name="sold" id="soldonly" value="no" onclick="changeSold('{{$url}}', 'forsale')" {{$show=='all'?'':'checked'}} >
+        </span>
+        <span class="title">
+            @if (isset($artist))
+                <h2>{{$artist->first_name}} {{$artist->middle_name}} {{$artist->last_name}}</h2>
+            @endif
+            @if (isset($category))
+                <h2>{{$category->name}}</h2>
+            @endif
+        </span>
+        <span><p>Click on thumbnail to order or to view larger image</p></span>
+    </header>
    <div class="gallery">
         @foreach ($pieces as $idx => $piece)
             <div class="piece">
@@ -32,4 +47,9 @@
        @endforeach
    </div>
 </div>
+<script>
+    function changeSold(url, sold) {
+        window.location.href="/gallery"+url+sold;    
+    }
+</script>
 @endsection

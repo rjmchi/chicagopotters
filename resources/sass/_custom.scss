@@ -79,7 +79,16 @@ span.required {
         flex-basis: 50%;
     }
 }
-.gallery {
+header.gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    .title {
+        flex-basis: 85%;
+        text-align: center;
+    }
+}
+
+div.gallery {
     background-color: #f0f0f0;
     .piece {
         display: flex;

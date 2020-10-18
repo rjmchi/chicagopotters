@@ -10996,11 +10996,21 @@ span.required {
   flex-basis: 50%;
 }
 
-.gallery {
+header.gallery {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+header.gallery .title {
+  flex-basis: 85%;
+  text-align: center;
+}
+
+div.gallery {
   background-color: #f0f0f0;
 }
 
-.gallery .piece {
+div.gallery .piece {
   display: flex;
   flex-wrap: nowrap;
   margin-bottom: 5px;
@@ -11008,7 +11018,7 @@ span.required {
   align-items: center;
 }
 
-.gallery .piece p {
+div.gallery .piece p {
   line-height: 1em;
   margin: 0;
 }
