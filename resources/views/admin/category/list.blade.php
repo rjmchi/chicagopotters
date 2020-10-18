@@ -6,10 +6,9 @@
 
     <ul class="list-group">
     @foreach ($categories as $category)
-        <li class="list-group-item list-group-item-primary">{{$category->name}}</li>
+        <li class="list-group-item list-group-item-primary">{{$category->name}} <a class="btn-sm btn-primary" href="{{route('category.edit', $category->id)}}">Edit</a></li>
     @endforeach
     </ul>
-
 
     <form method = "post" action = "{{route('category.store')}}">
         @csrf

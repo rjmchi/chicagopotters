@@ -64,7 +64,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -76,8 +76,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
-    }
+        request()->validate([
+            'name'=> 'required',
+        ]);
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->input('name'));        
+        $category->save();
+        return redirect(route('category.index'));       }
 
     /**
      * Remove the specified resource from storage.
