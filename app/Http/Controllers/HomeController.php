@@ -42,7 +42,7 @@ class HomeController extends Controller
     }
 
     public function events() {
-        $data['albums'] = Album::all();
+        $data['albums'] = Album::orderBy('id', 'desc')->get();
         $data['events'] = Event::all();
         return view('events')->with($data);
     }
