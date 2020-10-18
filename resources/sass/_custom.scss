@@ -9,7 +9,12 @@ header {
     width: 90%;
     margin: 10px auto;
 }
-
+span.required {
+    color: $red;
+}
+.error {
+    color: $red;
+}
 .artist {
     display: flex;
     flex-wrap: wrap;

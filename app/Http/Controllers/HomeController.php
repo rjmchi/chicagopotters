@@ -7,10 +7,14 @@ use App\Models\Artist;
 use App\Models\Category;
 use App\Models\Piece;
 use App\Models\Picture;
+use App\Models\Customer;
+use App\Models\Order;
 use App\Models\Event;
 use App\Models\Album;
 use App\Mail\ContactMail;
+use App\Mail\OrderMail;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -129,4 +133,61 @@ class HomeController extends Controller
 
         return view('piece')->with($data);
     }
+    public function order(Piece $piece){
+        if (session()->has('customer')){
+            $cid = session('customer');
+            $data['customer'] = Customer::find($cid);
+        }
+        $data['piece'] = $piece;
+        return view('order')->with($data);
+    }
+
+    public function processOrder(Request $request) {
+        request()->validate([
+            'firstname'=> 'required',
+            'lastname'=> 'required',
+            'phone'=> 'required',
+            'email'=> 'required | email',
+        ]);
+        $cust = Customer::where('first_name', 'like', $request->firstname)
+            ->where('last_name', 'like', $request->lastname)
+            ->where('email', 'like', $request->email)
+            ->first();
+
+        if (!$cust) {
+            $cust = new Customer;
+            $cust->first_name = $request->firstname;
+            $cust->last_name = $request->lastname;
+            $cust->phone = $request->phone;
+            $cust->email = $request->email;
+            if ($request->address){
+                $cust->address = $request->address;
+            }
+            if ($request->city){
+                $cust->city = $request->city;
+            }
+            if ($request->state){
+                $cust->state = $request->state;
+            }
+            if ($request->zip){
+                $cust->zip = $request->zip;
+            }
+            $cust->save();
+        }
+        session(['customer'=> $cust->id]);
+        $o = new Order;
+        $o->customer_id = $cust->id;
+        $o->order_date = Carbon::now();
+        $o->piece_id = $request->pieceid;
+        $o->special_instructions = $request->specialinstructions;
+        $o->save();
+        $p = Piece::find($request->pieceid);
+        $p->sold = true;
+        $p->save();
+
+        $data['order'] = $o;
+        Mail::to($o->piece->artist->user->email)->send(new OrderMail($data));
+        return redirect('/')->withSuccess('Thank you for your order.  You will be contacted soon'); 
+    }
+
 }

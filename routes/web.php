@@ -34,6 +34,8 @@ Route::post('/mail', [HomeController::class, 'sendMail']);
 Route::get('/album/{slug}', [HomeController::class, 'showAlbum']);
 Route::get('/gallery/{artist}/{category}/{show?}',[HomeController::class, 'gallery']);
 Route::get('/showpiece/{piece}',[HomeController::class, 'piece']);
+Route::get('/order/{piece}',[HomeController::class, 'order']);
+Route::post('/order',[HomeController::class, 'processOrder']);
 
 Route::get('/admin', [AdminController::class, 'index']);
 

@@ -10913,6 +10913,14 @@ header {
   margin: 10px auto;
 }
 
+span.required {
+  color: #e3342f;
+}
+
+.error {
+  color: #e3342f;
+}
+
 .artist {
   display: flex;
   flex-wrap: wrap;
