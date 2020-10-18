@@ -22,14 +22,16 @@
         </div>
     </div>
 
-    <p>Click on Thumbnail Below to Change Views</p>
-    <div class="thumbs">
-        @foreach ($piece->pictures as $picture)
-        <a href="javascript:ChangeView('{{asset('./storage/images'.$piece->artist->id.'/'.$picture->file_name)}}')">
-            <img src="{{asset('./storage/images'.$piece->artist->id.'/'.$picture->file_name)}}" alt="{{$picture->file_name}}" width="150">
-        </a>
-        @endforeach
-    </div>
+    @if (sizeof($piece->pictures) > 1)
+        <p>Click on Thumbnail Below to Change Views</p>
+        <div class="thumbs">
+            @foreach ($piece->pictures as $picture)
+                <a href="javascript:ChangeView('{{asset('./storage/images'.$piece->artist->id.'/'.$picture->file_name)}}')">
+                <img src="{{asset('./storage/images'.$piece->artist->id.'/'.$picture->file_name)}}" alt="{{$picture->file_name}}" width="150">
+                </a>
+            @endforeach
+        </div>
+    @endif
     <footer class="piece">
         <a href="/gallery/{{$artist}}/{{$category}}/{{$show}}">Back</a>     
     </footer>
