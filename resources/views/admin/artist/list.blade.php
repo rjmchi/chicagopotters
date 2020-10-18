@@ -14,6 +14,14 @@
                     <p>{{$artist->address}}</p>
                     <p>{{$artist->city}}, {{$artist->state}}  {{$artist->zip}}</p>
                 </span>
+                <span class="actions">
+                    <a href="{{route('artist.edit', $artist->id)}}" class="btn btn-primary">Edit</a>
+                    <form action="{{route('artist.destroy',$artist->id)}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </span>
         </div>
     @endforeach
 </div>

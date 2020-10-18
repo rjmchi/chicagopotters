@@ -121,14 +121,24 @@ span.required {
         border: 1px solid $purple;
         border-radius: 4px;
         margin-bottom: 3px;
+        width: 700px;
         .portrait {
             width: 150px;
             margin-right: 20px;
         }
         span {
+            margin: 10px;
             p {
                 margin: 2px;
                 font-size: 1.25em;
+            }
+        }
+        .actions {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            form {
+                margin-top: 10px;
             }
         }
     }

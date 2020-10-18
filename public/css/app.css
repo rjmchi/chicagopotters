@@ -11045,6 +11045,7 @@ span.required {
   border: 1px solid #2c046d;
   border-radius: 4px;
   margin-bottom: 3px;
+  width: 700px;
 }
 
 .admin .artist .portrait {
@@ -11052,9 +11053,23 @@ span.required {
   margin-right: 20px;
 }
 
+.admin .artist span {
+  margin: 10px;
+}
+
 .admin .artist span p {
   margin: 2px;
   font-size: 1.25em;
+}
+
+.admin .artist .actions {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin .artist .actions form {
+  margin-top: 10px;
 }
 
 .admin .card {
