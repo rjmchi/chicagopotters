@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="order">
-        <h1>Order Form</h1>
+        <h3>Order Form</h3>
         <div class="order-instructions">
         <p>Currently we only accept payment by check or money order.</p>
             <ul>
@@ -13,7 +13,8 @@
                 <li>If paying by money order, your order will be shipped as soon as we receive payment.</li>
         </ul>
         </div>
-        <h2>Item: {{$piece->id}}  Price: $ {{$piece->price}} + packaging and shipping (about $5 - $10)</h2>
+        <img src="{{asset('./storage/images'.$piece->artist->id.'/'.$piece->pictures->where('main_image', true)->first()->file_name)}}" alt="{{$piece->title}}" width="150"></a>
+        <h3>Item: {{$piece->id}}  Price: $ {{$piece->price}} + packaging and shipping (about $5 - $10)</h2>
         <h3>Artist: {{$piece->artist->first_name}} {{$piece->artist->middle_name}} {{$piece->artist->last_name}}</h3>
         <p><span class="required"> * Required Fields</span></p>
         <form class="order" action="/order" method="post">
