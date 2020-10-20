@@ -1,13 +1,35 @@
 body {
-    color: $purple;
-    footer {
-        margin: 15px 50px;
-        padding: 25px;
-    }
+    color: $green;
+    background-color: darken($purple, 16%);
+    color: lighten($green, 70%);
 }
 header {
     width: 90%;
-    margin: 10px auto;
+    margin: 15px auto 0;
+    text-align: center;
+    img {
+        width: 65%;
+        margin-bottom: 10px;
+    }
+}
+footer {
+    margin: 15px 50px;
+    padding: 25px;
+    text-align: center;
+    color: lighten($green, 80%);
+    font-size: 0.8rem;
+    p {
+        line-height: 1.1rem;
+        margin: 0;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    text-align: center;
+    color: lighten($green, 25%);
 }
 span.required {
     color: $red;
@@ -15,6 +37,30 @@ span.required {
 .error {
     color: $red;
 }
+a {
+    color: lighten($green, 25%);
+}
+a:hover {
+    color: lighten($green, 40%);
+}
+.btn-primary {
+    background-color: $purple;
+    border-color: darken($purple, 5%);
+}
+.btn-primary:hover {
+    background-color: darken($purple, 5%);
+    border-color: darken($purple, 10%);
+}
+.btn-secondary {
+    border-color: lighten($green, 5%);
+    background-color: $green;
+    color: #fff;
+}
+.btn-secondary:hover {
+    border-color: $green;
+    background-color: darken($green, 5%);
+}
+
 .artist {
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +71,6 @@ span.required {
     padding-bottom: 10px;
     h3 {
         flex-basis: 100%;
-        text-align: center;
     }
     img.portrait {
         margin-right: 15px;
@@ -58,6 +103,7 @@ span.required {
     padding-top: 10px;
     border-bottom: 2px solid $purple;
 }
+
 .category {
     display: flex;
     justify-content: center;
@@ -86,27 +132,76 @@ header.gallery {
         flex-basis: 85%;
         text-align: center;
     }
+    label {
+        color: #ccc;
+        margin: 0 5px;
+    }
+    p {
+        color: #ccc;
+        line-height: 1.1em;
+    }
 }
-
-div.gallery {
-    background-color: #f0f0f0;
-    .piece {
-        display: flex;
-        flex-wrap: nowrap;
-        margin-bottom: 5px;
-        justify-content: center;
-        align-items: center;
-
+.piece {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    h2 {
+        flex-basis: 100%;
+        text-align: left;
+    }
+    .piece-info {
+        margin: 15px;
+        align-self: flex-start;
         p {
-            line-height: 1em;
+            font-size: 1.3em;
+            line-height: 1.5em;
             margin: 0;
         }
     }
 }
-.btn-primary {
-    background-color: $purple;
-    border-color: darken($purple, 10%);
+.thumbs {
+    margin-top: 20px;
+    p {
+        margin: 0;
+    }
 }
+footer.piece {
+    font-size: 2em;
+}
+div.gallery {
+    .piece {
+        margin-bottom: 10px;
+        padding: 15px;
+        border-bottom: 1px solid $green;
+        justify-content: center;
+        .info {
+            padding: 25px;
+        }
+        p {
+            font-size: 1.15em;
+            line-height: 1.2em;
+            margin: 0;
+        }
+    }
+    .left {
+        .info {
+            order: 2;
+            margin-left: 25px;
+        }
+    }
+    .right {
+        .info {
+            order: -1;
+            margin-right: 25px;
+        }
+    }
+}
+
+ul.contact-list {
+    font-size: 2em;
+    margin-left: 25px;
+}
+
 .photo {
     display: flex;
     justify-content: center;

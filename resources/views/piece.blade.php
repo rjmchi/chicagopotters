@@ -6,7 +6,7 @@
         <h2>{{$piece->title}}</h2>
                 <img id="piece" src="{{asset('./storage/images'.$piece->artist->id.'/'.$piece->pictures->where('main_image', true)->first()->file_name)}}" alt="{{$piece->title}}">
         <div class="piece-info">
-            <p>{{$piece->description}}</p>
+            <h5>{{$piece->description}}</h5>
             <p>{{$piece->dimensions}}</p>
             <p>{{$piece->decoration}}</p>
             <p>Artist: {{$piece->artist->first_name}} {{$piece->artist->middle_name}} {{$piece->artist->last_name}}</p>
@@ -21,10 +21,10 @@
             @endif
         </div>
     </div>
-
+    
     @if (sizeof($piece->pictures) > 1)
-        <p>Click on Thumbnail Below to Change Views</p>
         <div class="thumbs">
+        <p>Click on Thumbnail Below to Change Views</p>
             @foreach ($piece->pictures as $picture)
                 <a href="javascript:ChangeView('{{asset('./storage/images'.$piece->artist->id.'/'.$picture->file_name)}}')">
                 <img src="{{asset('./storage/images'.$piece->artist->id.'/'.$picture->file_name)}}" alt="{{$picture->file_name}}" width="150">

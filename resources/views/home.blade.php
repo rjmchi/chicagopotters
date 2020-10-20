@@ -7,8 +7,8 @@
          <h3>{{$artist->first_name}} {{$artist->middle_name}} {{$artist->last_name}}</h3>
          <img src="{{asset('storage/images/'.$artist->picture)}}" alt="{{$artist->first_name}} {{$artist->middle_name}} {{$artist->last_name}}" class="portrait" width="200">
          <div class="links">
-            <a href="/gallery/{{$artist->id}}/0/forsale" class="btn btn-success">See all work for sale</a>
-            <a href="/gallery/{{$artist->id}}/0/all" class="btn btn-success">See all work (including sold pieces)</a>
+            <a href="/gallery/{{$artist->id}}/0/forsale" class="btn btn-secondary">See all work for sale</a>
+            <a href="/gallery/{{$artist->id}}/0/all" class="btn btn-secondary">See all work (including sold pieces)</a>
          </div>
          <ul class="categories">
             @foreach ($categories as $category)

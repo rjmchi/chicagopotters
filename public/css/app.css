@@ -10900,17 +10900,42 @@ a.text-dark:focus {
 }
 
 body {
-  color: #2c046d;
-}
-
-body footer {
-  margin: 15px 50px;
-  padding: 25px;
+  color: #07361b;
+  background-color: #0c011e;
+  color: #aef4cc;
 }
 
 header {
   width: 90%;
-  margin: 10px auto;
+  margin: 15px auto 0;
+  text-align: center;
+}
+
+header img {
+  width: 65%;
+  margin-bottom: 10px;
+}
+
+footer {
+  margin: 15px 50px;
+  padding: 25px;
+  text-align: center;
+  color: #dbfae8;
+  font-size: 0.8rem;
+}
+
+footer p {
+  line-height: 1.1rem;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+  color: #16a753;
 }
 
 span.required {
@@ -10919,6 +10944,35 @@ span.required {
 
 .error {
   color: #e3342f;
+}
+
+a {
+  color: #16a753;
+}
+
+a:hover {
+  color: #26e376;
+}
+
+.btn-primary {
+  background-color: #2c046d;
+  border-color: #220354;
+}
+
+.btn-primary:hover {
+  background-color: #220354;
+  border-color: #18023c;
+}
+
+.btn-secondary {
+  border-color: #0a4d26;
+  background-color: #07361b;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  border-color: #07361b;
+  background-color: #041f10;
 }
 
 .artist {
@@ -10933,7 +10987,6 @@ span.required {
 
 .artist h3 {
   flex-basis: 100%;
-  text-align: center;
 }
 
 .artist img.portrait {
@@ -11006,26 +11059,80 @@ header.gallery .title {
   text-align: center;
 }
 
-div.gallery {
-  background-color: #f0f0f0;
+header.gallery label {
+  color: #ccc;
+  margin: 0 5px;
 }
 
-div.gallery .piece {
+header.gallery p {
+  color: #ccc;
+  line-height: 1.1em;
+}
+
+.piece {
   display: flex;
-  flex-wrap: nowrap;
-  margin-bottom: 5px;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
 }
 
-div.gallery .piece p {
-  line-height: 1em;
+.piece h2 {
+  flex-basis: 100%;
+  text-align: left;
+}
+
+.piece .piece-info {
+  margin: 15px;
+  align-self: flex-start;
+}
+
+.piece .piece-info p {
+  font-size: 1.3em;
+  line-height: 1.5em;
   margin: 0;
 }
 
-.btn-primary {
-  background-color: #2c046d;
-  border-color: #18023c;
+.thumbs {
+  margin-top: 20px;
+}
+
+.thumbs p {
+  margin: 0;
+}
+
+footer.piece {
+  font-size: 2em;
+}
+
+div.gallery .piece {
+  margin-bottom: 10px;
+  padding: 15px;
+  border-bottom: 1px solid #07361b;
+  justify-content: center;
+}
+
+div.gallery .piece .info {
+  padding: 25px;
+}
+
+div.gallery .piece p {
+  font-size: 1.15em;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+div.gallery .left .info {
+  order: 2;
+  margin-left: 25px;
+}
+
+div.gallery .right .info {
+  order: -1;
+  margin-right: 25px;
+}
+
+ul.contact-list {
+  font-size: 2em;
+  margin-left: 25px;
 }
 
 .photo {

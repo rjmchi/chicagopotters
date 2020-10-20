@@ -26,10 +26,10 @@
     </header>
    <div class="gallery">
         @foreach ($pieces as $idx => $piece)
-            <div class="piece">
+            <div class="piece {{($idx%2==0)?'left':'right'}}">
                 <a href="/showpiece/{{$piece->id}}">
-                <img src="{{asset('./storage/images'.$piece->artist->id.'/'.$piece->pictures->where('main_image', true)->first()->file_name)}}" alt="{{$piece->title}}" width="150">
-                <div>
+                <img src="{{asset('./storage/images'.$piece->artist->id.'/'.$piece->pictures->where('main_image', true)->first()->file_name)}}" alt="{{$piece->title}}" width="150"></a>
+                <div class="info">
                     <p>{{$piece->title}}</p>
                     <p>{{$piece->dimensions}}</p>
                     <p>{{$piece->decoration}}</p>
@@ -42,7 +42,7 @@
                     @endif
                     <p>Item: {{$piece->id}}</p>
                 </div>
-            </a>
+
             </div>       
        @endforeach
    </div>

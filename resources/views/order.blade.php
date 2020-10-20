@@ -21,47 +21,59 @@
             @csrf
             <input type="hidden" name="pieceid" value="{{$piece->id}}">
             <div class="form-group">
-                <label for="firstname"><span class="required">*</span> First Name:</label>
-                <input type="text" class="input-control" name="firstname" value="{{old('firstname')}}" >
-                <label for="lastname"><span class="required">*</span>Last Name:</label>                            
-                <input type="text" class="input-control" name="lastname" value="{{old('lastname')}}" >
-                @error('firstname')
-                    <span class="error"> {{$message}} </span>
-                @enderror
-                @error('lastname')                 
-                    <span class="error">{{$message}}</span>
-                @enderror                
+                <div class="row">
+                    <div class="col-6">
+                        <label for="firstname"><span class="required">*</span> First Name:</label>
+                        <input type="text" class="form-control" name="firstname" value="{{old('firstname')}}" >
+                        @error('firstname')
+                            <span class="error"> {{$message}} </span>
+                        @enderror                        
+                    </div>
+                    <div class="col-6">
+                        <label for="lastname"><span class="required">*</span>Last Name:</label>                            
+                        <input type="text" class="form-control" name="lastname" value="{{old('lastname')}}" >
+                        @error('lastname')                 
+                            <span class="error">{{$message}}</span>
+                        @enderror                
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="address">Address: </label>
-                <input type="text" class="input-control" name="address" value="{{old('address')}}" >
+                <input type="text" class="form-control" name="address" value="{{old('address')}}" >
             </div>
             <div class="form-group">
+                <div class="row">
+                    <div class="col-8">
                 <label for="city">City: </label>
-                <input type="text" class="input-control" name="city" value="{{old('city')}}" >
+                <input type="text" class="form-control" name="city" value="{{old('city')}}" >
+                    </div><div class="col-2">
                 <label for="state">State: </label>
-                <input type="text" class="input-control" name="state" value="{{old('state')}}" >
+                <input type="text" class="form-control" name="state" value="{{old('state')}}" >
+                    </div>
+                    <div class="col-2">
                 <label for="zip">Zip: </label>
-                <input type="text" class="input-control" name="zip" value="{{old('zip')}}" >
+                <input type="text" class="form-control" name="zip" value="{{old('zip')}}" >
+                    </div></div>
             </div>
             <div class="form-group">
                 <label for="phone"><span class="required">*</span>Phone: </label>
-                <input type="text" class="input-control" name="phone" value="{{old('phone')}}" >
+                <input type="text" class="form-control" name="phone" value="{{old('phone')}}" >
                 @error('phone')
                     <span class="error">{{$message}}</span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="email"><span class="required">*</span>e-Mail: </label>
-                <input type="email" class="input-control" name="email" value="{{old('email')}}" >
+                <input type="email" class="form-control" name="email" value="{{old('email')}}" >
                 @error('email')
                     <span class="error">{{$message}}</span>
                 @enderror                
             </div>
             <div class="form-group">
                 <label for="specialinstructions">Special Instructions: </label>
-                <textarea class="input-control" name="specialinstructions">{{old('specialinstructions')}} </textarea>
+                <textarea class="form-control" name="specialinstructions">{{old('specialinstructions')}} </textarea>
             </div>                      
             <button type="submit" class="btn btn-primary">Submit Order</button>
         </form>
