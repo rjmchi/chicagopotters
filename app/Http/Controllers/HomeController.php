@@ -106,7 +106,7 @@ class HomeController extends Controller
             $data['show'] = 'all';
         }
 
-        $data['pieces'] = $piece->orderBy('id', 'desc')->get();
+        $data['pieces'] = $piece->orderBy('id', 'desc')->paginate(50);
         return view('gallery')->with($data);
     }
     

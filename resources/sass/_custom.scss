@@ -211,6 +211,16 @@ ul.contact-list {
     text-align: center;
     flex-basis: 100%;
 }
+.pagination {
+    justify-content: center;
+}
+.page-link {
+    color: $purple;
+}
+.page-item.active .page-link {
+    background-color: $purple;
+    border-color: $purple;
+}
 
 .admin {
     background-color: lighten($purple, 75%);
